@@ -3,18 +3,17 @@ import { useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import Geocode from "react-geocode";
 import Paper from "@mui/material/Paper";
-
 export default function GoogleMaps(props) {
   const { machineChoice, handleDistance } = props;
   const [location, setLocation] = useState({ lat: 3, lng: 3 });
   const [currLocation, setCurrLocation] = useState({ lat: 3, lng: 3 });
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCyF66ttzw2cSYnzbKY5Wyeuuiqdsl4oZ8",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API,
   });
 
   useEffect(() => {
-    Geocode.setApiKey("AIzaSyCyF66ttzw2cSYnzbKY5Wyeuuiqdsl4oZ8");
+    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API);
     Geocode.setLanguage("he");
     Geocode.setRegion("il");
     Geocode.fromAddress(
