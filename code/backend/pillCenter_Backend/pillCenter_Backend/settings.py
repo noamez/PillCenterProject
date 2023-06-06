@@ -183,7 +183,7 @@ def verified_callback(user):
 
 EMAIL_VERIFIED_CALLBACK = verified_callback
 
-EMAIL_FROM_ADDRESS = 'pillcenterdev@gmail.com'
+EMAIL_FROM_ADDRESS = os.environ.get('EMAIL_HOST_USER', default='')
 EMAIL_MAIL_SUBJECT = 'אימות הדואר אלקטרוני שלך'
 EMAIL_MAIL_HTML = 'mail.html'
 EMAIL_MAIL_PLAIN = 'plainmail.txt'
@@ -197,10 +197,13 @@ MAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'pillcenterdev@gmail.com'
-EMAIL_HOST_PASSWORD ="wlop nymn bxzd totq"
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD =os.environ.get('EMAIL_HOST_PASSWORD', default='')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 
 API_PREFIX = os.environ.get('API_PREFIX', default='')
+AGORA_APP_ID = os.environ.get('AGORA_APP_ID', default='')
+AGORA_APP_CERTIFICATE = os.environ.get('AGORA_APP_CERTIFICATE', default='')
+
